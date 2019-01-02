@@ -6,6 +6,11 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Service" />
+
     <Button
         android:id="@+id/start_btn"
         android:layout_width="match_parent"
@@ -29,6 +34,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="UnbindService" />
+
+    <Button
+        android:id="@+id/status_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GetServiceStatus" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="IntentService" />
+
+    <Button
+        android:id="@+id/start_intent_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="StartIntentService" />
+
 
 
 </LinearLayout>

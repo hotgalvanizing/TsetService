@@ -18,7 +18,6 @@ public class MyService extends Service {
         public int getCount() {
             return count;
         }
-
     }
 
     public MyService() {
@@ -34,6 +33,26 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "onCreate");
+
+        new Thread() {
+            @Override
+            public void run() {
+                while (!quit) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    count++;
+                }
+            }
+        }.start();
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.d(TAG, "onUnbind");
+        return true;
     }
 
     @Override
@@ -45,6 +64,7 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
+        this.quit = true;
         Log.d(TAG, "onDestroy");
     }
 }
